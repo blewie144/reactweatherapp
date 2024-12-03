@@ -1,0 +1,97 @@
+/* Container for the entire app */
+.weather {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background: linear-gradient(to bottom right, #87ceeb, #f0f8ff);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Search bar container */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Add spacing between elements */
+    margin-bottom: 20px;
+}
+
+/* Input field styling */
+.search-bar input {
+    height: 40px;
+    width: 60%;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Focus effect on input field */
+.search-bar input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Search button styling */
+.search-bar button {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+/* Hover effect on button */
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+/* Search icon styling */
+.search-bar img {
+    width: 20px;
+    height: 20px;
+    padding: 0 10px;
+    filter: invert(100%); /* Makes the icon white if it's dark */
+}
+
+/* Weather data styling */
+.weather h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.weather p {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Weather icon styling */
+.weather img {
+    margin: 10px 0;
+    width: 100px;
+    height: 100px;
+}
+
+/* Loading spinner styling */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
