@@ -111,7 +111,7 @@ function Weather() {
           <img
             src="https://i.gifer.com/ZZ5H.gif"
             alt="Loading..."
-            style={{ width: "50px" }}
+            style={{ width: "100px" }}
           />
         </div>
       )}
