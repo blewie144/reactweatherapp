@@ -72,6 +72,11 @@ function Weather() {
     }
   };
 
+  // Helper function to convert wind speed to km/h 
+  const convertWindSpeed = (speed: number): number => {
+    return Math.round(speed * 3.6);
+  };
+
   return (
     <div className="weather">
       <h1 style={{ marginBottom: "20px" }}>React Weather API App</h1>
@@ -123,7 +128,7 @@ function Weather() {
           />
           <p>Humidity: {(weatherData as WeatherData).main.humidity}%</p>
           <p>
-            Wind Speed: {(weatherData as WeatherData).wind.speed} {unit === "metric" ? "m/s" : "mph"}
+            Wind Speed: {convertWindSpeed((weatherData as WeatherData).wind.speed)} km/h
           </p>
         </div>
       )}
