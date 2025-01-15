@@ -79,16 +79,16 @@ function Weather() {
 
   return (
     <div className="weather">
-      <h1 style={{ marginBottom: "20px" }}>React Weather API App</h1>
+      <h1>Weather Forecaster</h1>
       <div className="search-bar">
         <input
           type="text"
-          placeholder="Search City..."
+          placeholder="Enter city name..."
           value={city}
           onChange={(e) => setCity(e.target.value)}
           onKeyDown={handleKeyPress}
         />
-        <button type="button" onClick={() => fetchWeather()}>
+        <button type="button" onClick={fetchWeather}>
           Get Weather
         </button>
         <div className="unit-toggle">
@@ -99,14 +99,15 @@ function Weather() {
               checked={unit === "fahrenheit"}
               onChange={convertUnit}
             />
-            <span className="slider round"></span>
+            <span className="slider"></span>
           </label>
           <span>°F</span>
         </div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
       </div>
+      
+      {error && <div className="error-message">{error}</div>}
 
-      {loading && (
+      {loading ? (
         <div className="loading">
           <img
             src="https://i.gifer.com/ZZ5H.gif"
@@ -114,20 +115,26 @@ function Weather() {
             style={{ width: "100px" }}
           />
         </div>
-      )}
-
-      {!loading && weatherData && (
-        <div>
+      ) : weatherData && (
+        <div className="weather-data">
           <h2>{(weatherData as WeatherData).name}</h2>
-          <p>Temperature: {convertTemperature((weatherData as WeatherData).main.temp)}{unitSymbol}</p>
-          <p>Weather: {(weatherData as WeatherData).weather[0].description}</p>
-          <img
-            src={`https://openweathermap.org/img/wn/${(weatherData as WeatherData).weather[0].icon}@2x.png`}
-            alt={(weatherData as WeatherData).weather[0].description}
-            style={{ width: "100px", height: "100px" }}
-          />
-          <p>Humidity: {(weatherData as WeatherData).main.humidity}%</p>
-          <p>
+          <div className="weather-icon">
+            <img
+              src={`https://openweathermap.org/img/wn/${(weatherData as WeatherData).weather[0].icon}@2x.png`}
+              alt={(weatherData as WeatherData).weather[0].description}
+            />
+          </div>
+          <p className="temperature">
+            Temperature: {convertTemperature((weatherData as WeatherData).main.temp)}{unitSymbol}
+          </p>
+          <p className="description">
+            {(weatherData as WeatherData).weather[0].description.charAt(0).toUpperCase() + 
+             (weatherData as WeatherData).weather[0].description.slice(1)}
+          </p>
+          <p className="humidity">
+            Humidity: {(weatherData as WeatherData).main.humidity}%
+          </p>
+          <p className="wind">
             Wind Speed: {convertWindSpeed((weatherData as WeatherData).wind.speed)} km/h
           </p>
         </div>

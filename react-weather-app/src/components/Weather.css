@@ -1,108 +1,102 @@
-/* Container for the entire app */
+/* Modern gradient background */
 .weather {
     margin: 20px auto;
-    padding: 20px;
-    max-width: 600px;
-    background: linear-gradient(to bottom right, #87ceeb, #f0f8ff);
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    max-width: 800px;
+    background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     text-align: center;
-    font-family: 'Arial', sans-serif;
+    color: white;
 }
 
-/* Search bar container */
+/* Improved heading styles */
+.weather h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced search bar container */
 .search-bar {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* Add spacing between elements */
-    margin-bottom: 20px;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
 }
 
-/* Input field styling */
+/* Modern input field */
 .search-bar input {
-    height: 40px;
-    width: 60%;
-    padding: 0 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    height: 50px;
+    width: 300px;
+    padding: 0 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
     font-size: 16px;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
-/* Focus effect on input field */
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
 .search-bar input:focus {
     outline: none;
-    border-color: #007bff;
-    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
 }
 
-/* Search button styling */
+/* Stylish button */
 .search-bar button {
-    width: 150px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #007bff;
+    height: 50px;
+    padding: 0 30px;
+    background: rgba(255, 255, 255, 0.2);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
-/* Hover effect on button */
 .search-bar button:hover {
-    background-color: #0056b3;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
 }
 
-/* Search icon styling */
-.search-bar img {
-    width: 20px;
-    height: 20px;
-    padding: 0 10px;
-    filter: invert(100%); /* Makes the icon white if it's dark */
+/* Weather data container */
+.weather-data {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    margin-top: 20px;
 }
 
-/* Weather data styling */
-.weather h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
+.weather-data h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: white;
 }
 
-.weather p {
-    font-size: 18px;
-    margin: 5px 0;
-    color: #555;
+.weather-data p {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-/* Weather icon styling */
-.weather img {
-    margin: 10px 0;
-    width: 100px;
-    height: 100px;
-}
-
-/* Loading spinner styling */
-.loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-}
-
-.unit-toggle {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 10px 0;
-}
-
+/* Toggle Switch */
 .switch {
   position: relative;
   display: inline-block;
@@ -123,8 +117,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: rgba(255, 255, 255, 0.2);
   transition: .4s;
+  border-radius: 34px;
 }
 
 .slider:before {
@@ -136,20 +131,63 @@
   bottom: 4px;
   background-color: white;
   transition: .4s;
+  border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.4);
 }
 
 input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-.slider.round {
-  border-radius: 34px;
+/* Loading animation container */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
 }
 
-.slider.round:before {
-  border-radius: 50%;
+/* Error message styling */
+.error-message {
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Weather icon container */
+.weather-icon {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    padding: 15px;
+    margin: 20px auto;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .weather {
+        margin: 10px;
+        padding: 20px;
+    }
+    
+    .search-bar {
+        flex-direction: column;
+    }
+    
+    .search-bar input {
+        width: 100%;
+    }
 }
